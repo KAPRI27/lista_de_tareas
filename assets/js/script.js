@@ -6,18 +6,19 @@ const dateYear = document.getElementById('dateYear')
 
 //TASKS CONTAINER
 const tasksContainer = document.getElementById('taskContainer')
+console.log(tasksContainer)
 
 const setDate = () => {
     const date = new Date()
-    dateNumber.textContent = date.toLocaleString('es', { day: 'numeric' })
-    dateText.textContent = date.toLocaleDateString('es', { weekday: 'long' })
-    dateMonth.textContent = date.toLocaleDateString('es', { month: 'short' })
-    dateYear.textContent = date.toLocaleDateString('es', { year: 'numeric' })
+    dateNumber.textContent = date.toLocaleString('es', {day: 'numeric'})
+    dateText.textContent = date.toLocaleString('es', {weekday: 'long'})
+    dateMonth.textContent = date.toLocaleString('es', {month: 'short'})
+    dateYear.textContent = date.toLocaleString('es', {year: 'numeric'})
 }
 
 const addNewTask = event => {
     event.preventDefault()
-    const { value } = event.target.taskText
+    const {value} = event.target.taskText
     if(!value) return
     const task = document.createElement('div')
     task.classList.add('task', 'roundBorder')
@@ -35,16 +36,13 @@ const order = () => {
     const done = []
     const toDo = []
     tasksContainer.childNodes.forEach( el => {
-        el.classList.container('done') ? done.push(el) : toDo.push(el)
+        el.classList.contains('done') ? done.push(el) : toDo.push(el)
     })
     return [...toDo, ...done]
 }
 
 const renderOrderedTasks = () => {
     order().forEach(el => tasksContainer.appendChild(el))
-
 }
 
-
 setDate()
-
