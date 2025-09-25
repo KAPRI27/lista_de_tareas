@@ -1,0 +1,31 @@
+:root {
+    --primary: #91c922;
+    --secondary: #ff001e;
+    --light: #fff;
+    --dark: #000;
+    --diabled: #f7f8c7;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    height: 100vh;
+    background-color: var(--diabled);
+}
+
+*:first-letter{
+    text-transform: capitalize;
+} 
+
+.roundBorder{
+    border-radius: 5px;
+}
+
+.list{
+    margin: 25px auto;
+    padding: 25px;
+    background-color: var(--light);
+    width: 100%;
+    max-width: 350px;
+
+}
